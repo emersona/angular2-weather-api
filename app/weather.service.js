@@ -14,10 +14,10 @@ require('rxjs/add/operator/toPromise');
 var WeatherService = (function () {
     function WeatherService(http) {
         this.http = http;
-        this.weatherDataUrl = 'http://api.wunderground.com/api/6dcd84d359914e7c/conditions/q/MI/Detroit.json'; // URL to web api
+        this.weatherUrl = 'http://api.wunderground.com/api/6dcd84d359914e7c/conditions/q/MI/Detroit.json'; // URL to web api
     }
-    WeatherService.prototype.getWeatherData = function () {
-        return this.http.get(this.weatherDataUrl)
+    WeatherService.prototype.getWeather = function () {
+        return this.http.get(this.weatherUrl)
             .toPromise()
             .then(function (response) { return response.json().data; })
             .catch(this.handleError);

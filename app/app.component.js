@@ -9,37 +9,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+// import 'rxjs/rxjs-operators';
 var AppComponent = (function () {
     function AppComponent() {
         this.title = 'Weather Data';
         this.weather = {
             id: 1,
-            name: "Weather Data"
+            name: "Weather Data String"
         };
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>WEATHER DATA {{weather.name}}</h1>'
+            template: '<h1>{{weather.name}}</h1>'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
     return AppComponent;
 }());
 exports.AppComponent = AppComponent;
-var WeatherData = (function () {
-    function WeatherData(http) {
-        this.http = http;
-    }
-    // Get request and serialize the result to JSON
-    WeatherData.prototype.getData = function () {
-        console.log("get data");
-        console.log(this.http);
-        this.http.get('http://api.wunderground.com/api/6dcd84d359914e7c/conditions/q/MI/Detroit.json')
-            .toRx()
-            .map(function (res) { return res.json(); });
-    };
-    return WeatherData;
-}());
-exports.WeatherData = WeatherData;
 //# sourceMappingURL=app.component.js.map

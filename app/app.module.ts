@@ -5,7 +5,7 @@ import { AppComponent }  from './app.component';
 
 import { HttpModule }    from '@angular/http';
 
-import { WeatherService }  from 'weather.service';
+import { WeatherService }  from './weather.service';
 
 @NgModule({
   imports:      [ BrowserModule, HttpModule ],

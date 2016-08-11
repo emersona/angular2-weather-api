@@ -9,23 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var platform_browser_1 = require('@angular/platform-browser');
-var app_component_1 = require('./app.component');
-var http_1 = require('@angular/http');
 var weather_service_1 = require('./weather.service');
-var AppModule = (function () {
-    function AppModule() {
+var WeatherComponent = (function () {
+    function WeatherComponent(weatherService) {
+        this.weatherService = weatherService;
+        this.mode = 'Observable';
     }
-    AppModule = __decorate([
-        core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule],
-            declarations: [app_component_1.AppComponent],
-            bootstrap: [app_component_1.AppComponent],
-            providers: [weather_service_1.WeatherService]
+    WeatherComponent.prototype.ngOnInit = function () { this.getWeather(); };
+    WeatherComponent.prototype.getWeather = function () {
+        this.weatherService.getWeather();
+    };
+    WeatherComponent = __decorate([
+        core_1.Component({
+            selector: 'my-weather',
+            templateUrl: 'app/weather.component.html',
+            styleUrls: ['app/weather.component.css']
         }), 
-        __metadata('design:paramtypes', [])
-    ], AppModule);
-    return AppModule;
+        __metadata('design:paramtypes', [weather_service_1.WeatherService])
+    ], WeatherComponent);
+    return WeatherComponent;
 }());
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+exports.WeatherComponent = WeatherComponent;
+//# sourceMappingURL=weather.component.js.map

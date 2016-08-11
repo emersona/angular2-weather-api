@@ -1,30 +1,17 @@
-import { Component } from '@angular/core';
+import { Component }  from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Weather } from 'app/weather';
+// import 'rxjs/rxjs-operators';
+
 @Component({
   selector: 'my-app',
-  template: '<h1>WEATHER DATA {{weather.name}}</h1>'
+  template: '<h1>{{weather.name}}</h1>'
 })
 
 export class AppComponent {
   title = 'Weather Data';
-  weather: WeatherData = {
+  weather: Weather = {
               id: 1,
-              name: "Weather Data"
+              name: "Weather Data String"
             }
-}
-
-export class WeatherData {
-  id: number;
-  name: string;
-
-  constructor(public http: Http) {
-  }
-
-  // Get request and serialize the result to JSON
-  getData() {
-    console.log("get data");
-    console.log(this.http);
-    this.http.get('http://api.wunderground.com/api/6dcd84d359914e7c/conditions/q/MI/Detroit.json')
-      .toRx()
-      .map(res => res.json();
-  }
 }
