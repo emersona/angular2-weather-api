@@ -9,21 +9,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var weather_service_1 = require('./weather.service');
 // import 'rxjs/rxjs-operators';
 var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Weather Data';
+    function AppComponent(weatherService) {
+        this.weatherService = weatherService;
+        this.title = "My First Angular2 App That Worked Perfectly Right Away!";
         this.weather = {
-            id: 1,
-            name: "Weather Data String"
+            conditions: "conditions",
+            current_observation: "Weather Data Observations"
         };
     }
+    AppComponent.prototype.getWeather = function () {
+        return this.weatherService.getWeather();
+    };
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: '<h1>{{weather.name}}</h1>'
+            template: "\n          <h1>{{title}}</h1>\n          <a routerLink=\"/weather\">Weather</a>\n          <router-outlet></router-outlet>\n        "
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [weather_service_1.WeatherService])
     ], AppComponent);
     return AppComponent;
 }());

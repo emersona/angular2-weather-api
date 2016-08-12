@@ -11,12 +11,12 @@ export class WeatherService {
 
   constructor(private http: Http) { }
 
-  private weatherUrl = 'http://api.wunderground.com/api/6dcd84d359914e7c/conditions/q/MI/Detroit.json';  // URL to web api
+  private weatherUrl = 'app/mock_weather.json';  // URL to web api
 
   getWeather() {
     return this.http.get(this.weatherUrl)
                .toPromise()
-               .then(response => response.json().data as Weather[])
+               .then(response => response.json().data)
                .catch(this.handleError);
   }
 
