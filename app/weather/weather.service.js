@@ -14,7 +14,7 @@ require('rxjs/add/operator/toPromise');
 var WeatherService = (function () {
     function WeatherService(http) {
         this.http = http;
-        this.weatherUrl = 'app/weather/mock_weather_test.json'; // Mock URL so we're not hitting the webservice constantly
+        this.weatherUrl = 'app/weather/mock_weather_2016_11_09.json'; // Mock URL so we're not hitting the webservice constantly
     }
     // private weatherUrl = 'http://api.wunderground.com/api/6dcd84d359914e7c/conditions/q/MI/Detroit.json'
     WeatherService.prototype.getWeather = function () {

@@ -1,15 +1,18 @@
 <!-- <div *ngIf="weather"> -->
-  <h2>Details!</h2>
+  <h2>Find Out Today's Weather</h2>
 
-  <div>
-    <!-- <label>name: </label> -->
-    <!-- <input [(ngModel)]="weather.name" placeholder="name" /> -->
-
-  </div>
-  <button (click)="getWeather()">Get Current Weather</button>
+  <p>
+    <button (click)="getWeather()">Get Current Weather</button>
+  </p>
   <div *ngIf="weather">
-    <label>Temp</label>
-    <span> {{weather?.temp}} </span>
+    <div>
+      <label><strong>City:</strong></label>
+      <span> {{weather?.current_observation?.display_location?.full}} </span>
+    </div>
+    <div>
+      <label><strong>Temp:</strong></label>
+      <span> {{weather?.current_observation?.temp_f}} F </span>
+    </div>
   </div>
   <p class="error">{{errorMessage}}</p>
 <!-- </div> -->
