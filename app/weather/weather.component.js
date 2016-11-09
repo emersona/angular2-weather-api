@@ -11,18 +11,22 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var weather_service_1 = require('./weather.service');
 var WeatherComponent = (function () {
+    // private weather;
     function WeatherComponent(weatherService) {
         this.weatherService = weatherService;
+        // weather: string;
         this.mode = 'Observable';
     }
-    WeatherComponent.prototype.ngOnInit = function () { this.getWeather(); };
+    // ngOnInit() { this.getWeather(); }
     WeatherComponent.prototype.getWeather = function () {
-        this.weatherService.getWeather();
+        var _this = this;
+        this.weatherService.getWeather().then(function (response) { return _this.weather = response; }, function (error) { return _this.errorMessage = error; });
+        console.log(this.weather);
     };
     WeatherComponent = __decorate([
         core_1.Component({
             selector: 'my-weather',
-            templateUrl: 'app/weather.component.html'
+            templateUrl: 'app/weather/weather.component.html'
         }), 
         __metadata('design:paramtypes', [weather_service_1.WeatherService])
     ], WeatherComponent);

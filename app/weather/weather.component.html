@@ -1,0 +1,15 @@
+<!-- <div *ngIf="weather"> -->
+  <h2>Details!</h2>
+
+  <div>
+    <!-- <label>name: </label> -->
+    <!-- <input [(ngModel)]="weather.name" placeholder="name" /> -->
+
+  </div>
+  <button (click)="getWeather()">Get Current Weather</button>
+  <div>
+    {{weather | json}}
+  </div>
+  <p class="error">{{errorMessage}}</p>
+<!-- </div> -->
+

@@ -14,13 +14,33 @@ require('rxjs/add/operator/toPromise');
 var WeatherService = (function () {
     function WeatherService(http) {
         this.http = http;
-        this.weatherUrl = 'app/mock_weather.json'; // URL to web api
+        this.weatherUrl = 'app/weather/mock_weather.json'; // Mock URL so we're not hitting the webservice constantly
     }
+    // private weatherUrl = 'http://api.wunderground.com/api/6dcd84d359914e7c/conditions/q/MI/Detroit.json'
     WeatherService.prototype.getWeather = function () {
+        // console.log(this.http.get(this.weatherUrl).map(response => response.json))
+        // return this.http.get(this.weatherUrl)
+        //               .map(response => response);
         return this.http.get(this.weatherUrl)
             .toPromise()
-            .then(function (response) { return response.json().data; })
-            .catch(this.handleError);
+            .then(function (response) { return response.json(); });
+        // return this.http.get(this.weatherUrl)
+        //                 .map(this.extractData)
+        //                 .catch(this.handleError);
+        // var weatherData = this.http.get(this.weatherUrl)
+        //                      .map((res:Response) => res.json())
+        //                      .catch((error:any) => Observable.throw(error.json().error
+        // var weatherResponse = this.http.get(this.weatherUrl)
+        //    weatherResponse.map((res:Response) => res.json())
+        //    .subscribe(
+        //      data => { this.weatherData = data},
+        //      err => console.error(err),
+        //      () => console.log('done')
+        //    );
+    };
+    WeatherService.prototype.extractData = function (res) {
+        var body = res.json();
+        return body.data || {};
     };
     WeatherService.prototype.handleError = function (error) {
         console.error('An error occurred', error);

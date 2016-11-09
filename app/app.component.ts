@@ -1,7 +1,7 @@
 import { Component }  from '@angular/core';
 import { Observable } from 'rxjs/Observable';
-import { Weather } from './weather';
-import { WeatherService }  from './weather.service';
+import { Weather } from './weather/weather';
+import { WeatherService }  from './weather/weather.service';
 // import 'rxjs/rxjs-operators';
 
 @Component({
@@ -10,11 +10,13 @@ import { WeatherService }  from './weather.service';
           <h1>{{title}}</h1>
           <a routerLink="/weather">Weather</a>
           <router-outlet></router-outlet>
+          <h2>New Router Technique</h2>
+          <a [routerLink]="['/weather']">NEW WEATHER LINK</a>
         `
 })
 
 export class AppComponent {
-  title = "My First Angular2 App That Worked Perfectly Right Away!";
+  title = "Let's check out the weather";
   weather: Weather = {
               conditions: "conditions",
               current_observation: "Weather Data Observations"

@@ -8,13 +8,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+// Imports
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
+var http_1 = require('@angular/http');
+// Declarations
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
-var weather_component_1 = require('./weather.component');
-var http_1 = require('@angular/http');
-var weather_service_1 = require('./weather.service');
+var weather_component_1 = require('./weather/weather.component');
+var weather_service_1 = require('./weather/weather.service');
+// Decorator
 var AppModule = (function () {
     function AppModule() {
     }
