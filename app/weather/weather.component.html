@@ -7,8 +7,9 @@
 
   </div>
   <button (click)="getWeather()">Get Current Weather</button>
-  <div>
-    {{weather | json}}
+  <div *ngIf="weather">
+    <label>Temp</label>
+    <span> {{weather?.temp}} </span>
   </div>
   <p class="error">{{errorMessage}}</p>
 <!-- </div> -->

@@ -20,7 +20,7 @@ var WeatherComponent = (function () {
     // ngOnInit() { this.getWeather(); }
     WeatherComponent.prototype.getWeather = function () {
         var _this = this;
-        this.weatherService.getWeather().then(function (response) { return _this.weather = response; }, function (error) { return _this.errorMessage = error; });
+        this.weatherService.getWeather().subscribe(function (response) { return _this.weather = response; }, function (error) { return _this.errorMessage = error; });
         console.log(this.weather);
     };
     WeatherComponent = __decorate([

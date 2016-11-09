@@ -14,16 +14,16 @@ require('rxjs/add/operator/toPromise');
 var WeatherService = (function () {
     function WeatherService(http) {
         this.http = http;
-        this.weatherUrl = 'app/weather/mock_weather.json'; // Mock URL so we're not hitting the webservice constantly
+        this.weatherUrl = 'app/weather/mock_weather_test.json'; // Mock URL so we're not hitting the webservice constantly
     }
     // private weatherUrl = 'http://api.wunderground.com/api/6dcd84d359914e7c/conditions/q/MI/Detroit.json'
     WeatherService.prototype.getWeather = function () {
         // console.log(this.http.get(this.weatherUrl).map(response => response.json))
-        // return this.http.get(this.weatherUrl)
-        //               .map(response => response);
         return this.http.get(this.weatherUrl)
-            .toPromise()
-            .then(function (response) { return response.json(); });
+            .map(function (response) { return response.json(); });
+        // return this.http.get(this.weatherUrl)
+        //            .toPromise()
+        //            .then(response => response.json());
         // return this.http.get(this.weatherUrl)
         //                 .map(this.extractData)
         //                 .catch(this.handleError);
