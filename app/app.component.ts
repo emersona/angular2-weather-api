@@ -8,15 +8,13 @@ import { WeatherService }  from './weather/weather.service';
   selector: 'my-app',
   template: `
           <h1>{{title}}</h1>
-          <a routerLink="/weather">Weather</a>
+          <a [routerLink]="['/weather']">Get Weather</a>
           <router-outlet></router-outlet>
-          <h2>New Router Technique</h2>
-          <a [routerLink]="['/weather']">NEW WEATHER LINK</a>
         `
 })
 
 export class AppComponent {
-  title = "Let's check out the weather";
+  title = "Angular2 - Here We Go Again!";
   weather: Weather = {
               conditions: "conditions",
               current_observation: "Weather Data Observations"
@@ -28,3 +26,4 @@ export class AppComponent {
     return this.weatherService.getWeather();
   }
 }
+

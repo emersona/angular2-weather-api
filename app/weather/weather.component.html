@@ -6,17 +6,22 @@
   </p>
   <div *ngIf="weather">
     <div>
-      <label><strong>City:</strong></label>
+      <label><strong> City: </strong></label>
       <span> {{weather?.current_observation?.display_location?.full}} </span>
     </div>
     <div>
-      <label><strong>Temp:</strong></label>
+      <label><strong> Temp: </strong></label>
       <span> {{weather?.current_observation?.temp_f}} F </span>
     </div>
     <br />
     <div>
-      <sebm-google-map [latitude]="lat" [longitude]="lng">
-        <sebm-google-map-marker [latitude]="lat" [longitude]="lng"></sebm-google-map-marker>
+      <sebm-google-map [latitude]="lat"[longitude]="lng">
+        <sebm-google-map-marker [latitude]="lat"
+                                [longitude]="lng"
+                                [title]="markerTitle"
+                                [label]="markerLabel"
+                                [iconUrl]="markerIconUrl">
+        </sebm-google-map-marker>
       </sebm-google-map>
     </div>
   </div>

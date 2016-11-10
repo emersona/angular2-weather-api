@@ -14,7 +14,7 @@ var weather_service_1 = require('./weather/weather.service');
 var AppComponent = (function () {
     function AppComponent(weatherService) {
         this.weatherService = weatherService;
-        this.title = "Let's check out the weather";
+        this.title = "Angular2 - Here We Go Again!";
         this.weather = {
             conditions: "conditions",
             current_observation: "Weather Data Observations"
@@ -26,7 +26,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n          <h1>{{title}}</h1>\n          <a routerLink=\"/weather\">Weather</a>\n          <router-outlet></router-outlet>\n          <h2>New Router Technique</h2>\n          <a [routerLink]=\"['/weather']\">NEW WEATHER LINK</a>\n        "
+            template: "\n          <h1>{{title}}</h1>\n          <a [routerLink]=\"['/weather']\">Get Weather</a>\n          <router-outlet></router-outlet>\n        "
         }), 
         __metadata('design:paramtypes', [weather_service_1.WeatherService])
     ], AppComponent);

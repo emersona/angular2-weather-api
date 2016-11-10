@@ -19,6 +19,9 @@ export class WeatherComponent implements OnInit {
   weather: Weather[];
   lat: number = 41.9028;
   lng: number = 12.4964;
+  markerTitle: string = "Title";
+  markerLabel: string = "Location Label"
+  markerIconUrl: string = "http://imsdm.scene7.com/is/image/imsdm/Sun-Smarties-Bug";
   mode = 'Observable';
 
   getWeather() {
@@ -28,18 +31,22 @@ export class WeatherComponent implements OnInit {
     console.log(this.weather);
     if (typeof this.weather != 'undefined'){
       this.setLat(this.weather.current_observation.display_location.latitude)
-    }
-    if (typeof this.weather != 'undefined'){
       this.setLng(this.weather.current_observation.display_location.longitude)
+      this.setIconUrl(this.weather.current_observation.icon_url)
     }
+
   }
 
   private setLat(val){
-    this.lat = val;
+    this.lat = parseFloat(val);
   }
 
   private setLng(val){
-    this.lng = val;
+    this.lng = parseFloat(val);
+  }
+
+  private setIconUrl(val){
+    this.markerIconUrl = val;
   }
 
 }

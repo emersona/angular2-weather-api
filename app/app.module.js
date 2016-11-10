@@ -12,6 +12,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var platform_browser_1 = require('@angular/platform-browser');
 var http_1 = require('@angular/http');
+var core_2 = require('angular2-google-maps/core');
 // Declarations
 var app_component_1 = require('./app.component');
 var app_routing_1 = require('./app.routing');
@@ -23,7 +24,13 @@ var AppModule = (function () {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule, http_1.HttpModule, app_routing_1.routing],
+            imports: [platform_browser_1.BrowserModule,
+                http_1.HttpModule,
+                app_routing_1.routing,
+                core_2.AgmCoreModule.forRoot({
+                    apiKey: 'AIzaSyAW4012BUpiVh9ciN2CLR2Tb1G7OmXLFQE'
+                })
+            ],
             declarations: [app_component_1.AppComponent, weather_component_1.WeatherComponent],
             bootstrap: [app_component_1.AppComponent],
             providers: [weather_service_1.WeatherService]

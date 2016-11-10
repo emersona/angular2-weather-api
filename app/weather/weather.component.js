@@ -15,6 +15,9 @@ var WeatherComponent = (function () {
         this.weatherService = weatherService;
         this.lat = 41.9028;
         this.lng = 12.4964;
+        this.markerTitle = "Title";
+        this.markerLabel = "Location Label";
+        this.markerIconUrl = "http://imsdm.scene7.com/is/image/imsdm/Sun-Smarties-Bug";
         this.mode = 'Observable';
     }
     WeatherComponent.prototype.ngOnInit = function () { };
@@ -24,16 +27,18 @@ var WeatherComponent = (function () {
         console.log(this.weather);
         if (typeof this.weather != 'undefined') {
             this.setLat(this.weather.current_observation.display_location.latitude);
-        }
-        if (typeof this.weather != 'undefined') {
             this.setLng(this.weather.current_observation.display_location.longitude);
+            this.setIconUrl(this.weather.current_observation.icon_url);
         }
     };
     WeatherComponent.prototype.setLat = function (val) {
-        this.lat = val;
+        this.lat = parseFloat(val);
     };
     WeatherComponent.prototype.setLng = function (val) {
-        this.lng = val;
+        this.lng = parseFloat(val);
+    };
+    WeatherComponent.prototype.setIconUrl = function (val) {
+        this.markerIconUrl = val;
     };
     WeatherComponent = __decorate([
         core_1.Component({
