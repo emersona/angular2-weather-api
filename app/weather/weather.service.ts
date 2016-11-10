@@ -40,10 +40,10 @@ export class WeatherService {
    //    );
   }
 
-  private extractData(res: Response) {
-    let body = res.json();
-    return body.data || { };
-  }
+  // private extractData(res: Response) {
+  //   let body = res.json();
+  //   return body.data || { };
+  // }
 
   private handleError(error: any) {
     console.error('An error occurred', error);

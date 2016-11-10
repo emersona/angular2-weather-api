@@ -10,20 +10,36 @@ import { WeatherService }         from './weather.service';
 })
 
 export class WeatherComponent implements OnInit {
-  errorMessage: string;
-  weather: Weather[];
-  // weather: string;
-  mode = 'Observable';
-  // private weather;
+
   constructor (private weatherService: WeatherService) {}
 
-  // ngOnInit() { this.getWeather(); }
+  ngOnInit() { }
+
+  errorMessage: string;
+  weather: Weather[];
+  lat: number = 41.9028;
+  lng: number = 12.4964;
+  mode = 'Observable';
 
   getWeather() {
     this.weatherService.getWeather().subscribe(
                      response => this.weather = response,
                      error =>  this.errorMessage = <any>error);
     console.log(this.weather);
+    if (typeof this.weather != 'undefined'){
+      this.setLat(this.weather.current_observation.display_location.latitude)
+    }
+    if (typeof this.weather != 'undefined'){
+      this.setLng(this.weather.current_observation.display_location.longitude)
+    }
+  }
+
+  private setLat(val){
+    this.lat = val;
+  }
+
+  private setLng(val){
+    this.lng = val;
   }
 
 }

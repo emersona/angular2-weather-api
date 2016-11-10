@@ -11,17 +11,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var weather_service_1 = require('./weather.service');
 var WeatherComponent = (function () {
-    // private weather;
     function WeatherComponent(weatherService) {
         this.weatherService = weatherService;
-        // weather: string;
+        this.lat = 41.9028;
+        this.lng = 12.4964;
         this.mode = 'Observable';
     }
-    // ngOnInit() { this.getWeather(); }
+    WeatherComponent.prototype.ngOnInit = function () { };
     WeatherComponent.prototype.getWeather = function () {
         var _this = this;
         this.weatherService.getWeather().subscribe(function (response) { return _this.weather = response; }, function (error) { return _this.errorMessage = error; });
         console.log(this.weather);
+        if (typeof this.weather != 'undefined') {
+            this.setLat(this.weather.current_observation.display_location.latitude);
+        }
+        if (typeof this.weather != 'undefined') {
+            this.setLng(this.weather.current_observation.display_location.longitude);
+        }
+    };
+    WeatherComponent.prototype.setLat = function (val) {
+        this.lat = val;
+    };
+    WeatherComponent.prototype.setLng = function (val) {
+        this.lng = val;
     };
     WeatherComponent = __decorate([
         core_1.Component({

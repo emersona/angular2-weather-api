@@ -38,10 +38,10 @@ var WeatherService = (function () {
         //      () => console.log('done')
         //    );
     };
-    WeatherService.prototype.extractData = function (res) {
-        var body = res.json();
-        return body.data || {};
-    };
+    // private extractData(res: Response) {
+    //   let body = res.json();
+    //   return body.data || { };
+    // }
     WeatherService.prototype.handleError = function (error) {
         console.error('An error occurred', error);
         return Promise.reject(error.message || error);
